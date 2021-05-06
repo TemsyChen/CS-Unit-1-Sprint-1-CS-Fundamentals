@@ -21,6 +21,10 @@ def csAlphanumericRestriction(input_str):
 def csAlphanumericRestriction(input_str):
 	return input_str.isnumeric() or input_str.isalpha()
 
+'''Jimmy Slagle solution'''
+def csAlphanumericRestriction(input_str):
+    return bool(re.fullmatch("[a-zA-Z]+|[\d]+", input_str))
+
 
 '''Write a function that takes a string as input and returns that string in reverse order, with the opposite casing for each character within the string.
 
@@ -47,6 +51,20 @@ def csOppositeReverse(txt):
 '''Codesignal solution'''
 def csOppositeReverse(txt):
     return txt.swapcase()[::-1]
+
+'''Jimmy solution'''
+import string
+
+def csOppositeReverse(txt):
+  lower = string.ascii_lowercase
+  upper = string.ascii_uppercase
+
+  before = lower + upper
+  after = upper + lower
+  
+  code = txt.maketrans(before, after)
+  encoded = txt.translate(code)
+  return encoded[::-1]
 
 '''Create a function that given an integer, returns an integer where every digit in the input integer is squared.
 
